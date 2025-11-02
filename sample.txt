@@ -1,0 +1,157 @@
+// src/App.jsx
+
+import React from "react";
+
+const Hero = () => {
+  return (
+    <section className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="max-w-3xl text-center px-6">
+        <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-gray-900">
+          Orimark Technologies
+        </h1>
+        <p className="text-lg text-gray-700 mb-8">
+          Crafting digital solutions & IT services that empower your business to grow.
+        </p>
+        <a
+          href="#contact"
+          className="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+        >
+          Let’s Talk
+        </a>
+      </div>
+    </section>
+  );
+};
+
+const Services = () => {
+  const items = [
+    { title: "Web & App Development", desc: "Custom web & mobile solutions." },
+    { title: "Software Testing", desc: "Manual, automation & performance testing." },
+    { title: "Digital Marketing", desc: "SEO, PPC, content & growth strategies." },
+    { title: "GRC & Compliance", desc: "Governance, risk & security services." },
+  ];
+
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-5xl mx-auto px-4">
+        <h2 className="text-3xl font-semibold text-center mb-12">
+          Our Services
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {items.map((s, idx) => (
+            <div
+              key={idx}
+              className="p-6 border rounded-lg hover:shadow-lg transition"
+            >
+              <h3 className="text-xl font-bold mb-4">{s.title}</h3>
+              <p className="text-gray-600">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Products = () => {
+  const prods = [
+    { name: "RentMate", desc: "CRM & property management for real estate." },
+    { name: "HRMS", desc: "HR & office management system." },
+    {
+      name: "Clinic / Eye Clinic System",
+      desc: "Clinic management & patient workflows.",
+    },
+    { name: "Sales CRM", desc: "Optimize your sales pipeline & leads." },
+  ];
+
+  return (
+    <section className="py-20 bg-gray-100">
+      <div className="max-w-5xl mx-auto px-4">
+        <h2 className="text-3xl font-semibold text-center mb-12">Our Products</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {prods.map((p, i) => (
+            <div
+              key={i}
+              className="p-6 border rounded-lg hover:shadow-lg transition bg-white"
+            >
+              <h3 className="text-xl font-bold mb-4">{p.name}</h3>
+              <p className="text-gray-600">{p.desc}</p>
+              <button className="mt-4 text-blue-600 hover:underline">
+                Learn More
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Contact = () => {
+  return (
+    <section id="contact" className="py-20 bg-white">
+      <div className="max-w-3xl mx-auto px-4">
+        <h2 className="text-3xl font-semibold text-center mb-8">Contact Us</h2>
+        <div className="text-center mb-8">
+          <p>Email: info@orimarktechnologies.com</p>
+          <p>Phone: +91 9861342152 / +91 8249534580</p>
+          <p>
+            Address: Plot No. 2, Saheed Nagar, Bhubaneswar, Odisha, India
+          </p>
+        </div>
+        <form className="space-y-6">
+          <div>
+            <label className="block text-gray-700 mb-2">Your Name</label>
+            <input
+              type="text"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2"
+              placeholder="Name"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 mb-2">Email Address</label>
+            <input
+              type="email"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2"
+              placeholder="you@example.com"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 mb-2">Message</label>
+            <textarea
+              className="w-full border border-gray-300 rounded-lg px-4 py-2"
+              rows={4}
+              placeholder="How can we help you?"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+};
+
+const Footer = () => {
+  return (
+    <footer className="py-8 bg-gray-800 text-white text-center">
+      &copy; {new Date().getFullYear()} Orimark Technologies Pvt. Ltd.
+    </footer>
+  );
+};
+
+export default function App() {
+  return (
+    <div className="font-sans text-gray-900">
+      <Hero />
+      <Services />
+      <Products />
+      <Contact />
+      <Footer />
+    </div>
+  );
+}
