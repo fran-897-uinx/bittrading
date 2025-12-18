@@ -16,66 +16,66 @@ export default function Hero() {
     {
       title: "We Are ISO/IEC 27001:2022 Certified",
       subtitle: "Trusted IT Strategy Partner delivering excellence globally.",
-      img: "/hero1.jpg",
+      img: "/plant.jpg",
       cta1: "Get In Touch",
       cta2: "Get Started",
     },
     {
       title: "Innovating Tomorrow, Today",
       subtitle: "We build secure, scalable, and intelligent solutions.",
-      img: "/hero2.jpg",
+      img: "/profit.jpg",
       cta1: "Get In Touch",
       cta2: "Contact Us",
     },
     {
       title: "Your Success Is Our Priority",
       subtitle: "Empowering enterprises with technology that transforms.",
-      img: "/hero3.jpg",
+      img: "/concept.jpg",
       cta1: "Get In Touch",
       cta2: "Join Us",
     },
     {
       title: "Digital Transformation Experts",
       subtitle: "We create technology ecosystems that drive results.",
-      img: "/hero4.jpg",
+      img: "/plant.jpg",
       cta1: "Get In Touch",
       cta2: "Schedule Demo",
     },
-  ]
+  ];
 
-  const [api, setApi] = useState(null)
-  const [current, setCurrent] = useState(0)
-  const [progress, setProgress] = useState(0)
+  const [api, setApi] = useState(null);
+  const [current, setCurrent] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   // Auto-slide every 6 seconds
   useEffect(() => {
-    if (!api) return
+    if (!api) return;
     const interval = setInterval(() => {
-      api.scrollNext()
-    }, 6000)
-    return () => clearInterval(interval)
-  }, [api])
+      api.scrollNext();
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [api]);
 
   // Update current index
   useEffect(() => {
-    if (!api) return
-    const handleSelect = () => setCurrent(api.selectedScrollSnap())
-    api.on("select", handleSelect)
-    handleSelect()
-  }, [api])
+    if (!api) return;
+    const handleSelect = () => setCurrent(api.selectedScrollSnap());
+    api.on("select", handleSelect);
+    handleSelect();
+  }, [api]);
 
   // Progress bar animation
   useEffect(() => {
-    let start = Date.now()
-    const duration = 6000
+    let start = Date.now();
+    const duration = 6000;
     const tick = () => {
-      const elapsed = Date.now() - start
-      const newProgress = Math.min((elapsed / duration) * 100, 100)
-      setProgress(newProgress)
-      if (elapsed < duration) requestAnimationFrame(tick)
-    }
-    tick()
-  }, [current])
+      const elapsed = Date.now() - start;
+      const newProgress = Math.min((elapsed / duration) * 100, 100);
+      setProgress(newProgress);
+      if (elapsed < duration) requestAnimationFrame(tick);
+    };
+    tick();
+  }, [current]);
 
   return (
     <section className="relative w-full h-[90vh] overflow-hidden py-5">
@@ -89,7 +89,7 @@ export default function Hero() {
                   style={{
                     backgroundImage: `url(${slide.img})`,
                     backgroundSize: "cover",
-                    backgroundPosition: "center",
+                    backgroundPosition: "top",
                   }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-transparent"></div>
@@ -159,5 +159,5 @@ export default function Hero() {
         </div>
       </Carousel>
     </section>
-  )
+  );
 }

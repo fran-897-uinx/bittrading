@@ -7,7 +7,7 @@ export default function About() {
     heading: "IT Strategy Partners",
     subheading: "Why Choose Us",
     description:
-      "Customized solutions meticulously crafted to meet each business's demands. Proven track record of successful projects and satisfied clients. Agile and adaptive approach to stay ahead of technological trends.",
+      "From web development and mobile app development, to graphic/product design, online advertising, and smart gadget sales, OrieMark is more than a service provider,  we are a tech growth partner. We work closely with brands and businesses to craft digital experiences that are user-focused, visually appealing, and performance-driven.",
     services: [
       {
         img: "/profit.jpg",

@@ -41,7 +41,7 @@ export default function CaseStudies() {
               }}
             >
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-6">
+              <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-6">
                 <h3 className="text-xl font-bold mb-3 text-white">{c.title}</h3>
                 <p className="text-sm text-gray-200">{c.dec}</p>
               </div>

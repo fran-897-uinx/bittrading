@@ -9,9 +9,9 @@ export default function Introduction() {
     title: "Company Introduction",
     boldtitle: "Orimark Technologies is your trusted IT service company",
     content:
-      "Orimark Technology is a renowned software development and consulting company in Nigeria. We have emerged as proud technology partners for indigenous companies as well as businesses across the globe. We deliver affordable end-to-end solutions to SMBs and large enterprises alike.",
+      "OrieMark is a forward-thinking digital solutions company committed to helping businesses, creators, and organizations thrive in today’s tech-driven world. Our name is rooted in the Igbo culture “Orie” — symbolizing community, marketplace, and collective growth and combined with “Mark,” it represents our mission: to help every client leave a lasting mark in the digital space.",
     subcontent:
-      "Our mission is to empower organizations through innovative digital transformation, helping them leverage technology to achieve growth and operational efficiency.",
+      "Founded with a deep understanding of African creativity and global innovation, OrieMark bridges the gap between culture and technology. We are passionate about providing premium tech solutions that are not only modern and effective but also reflect the unique identity of our clients.",
   };
 
   return (

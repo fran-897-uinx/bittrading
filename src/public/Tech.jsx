@@ -8,7 +8,7 @@ export default function Technology() {
     >
       {/* Transparent Text */}
       <h2
-        className="text-[80px] md:text-[140px] font-extrabold uppercase leading-none mb-6"
+        className="text-5xl md:text-[140px] font-extrabold uppercase leading-none mb-6"
         style={{
           backgroundImage: "url('/plant.jpg')",
           backgroundSize: "cover",

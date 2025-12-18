@@ -6,20 +6,20 @@ export default function WhyChooseUs() {
 
   const tabs = {
     experience: {
-      title: "Experienced Professionals",
-      desc: "Our certified developers and consultants bring decades of combined experience delivering innovative IT solutions tailored to each client’s unique needs.",
-      img: "/choose1.jpg", // 🔹 replace with your image
+      title: "Our Mission",
+      desc: "To empower businesses and individuals with impactful digital solutions that inspire growth, drive visibility, and leave a mark of excellence.",
+      // img: "/choose1.jpg", // 🔹 replace with your image
     },
     innovation: {
-      title: "Driven by Innovation",
-      desc: "We constantly adopt emerging technologies to keep you ahead of the curve — delivering scalable, secure, and future-ready systems.",
-      img: "/choose2.jpg", // 🔹 replace with your image
+      title: "Our Vision",
+      desc: "To become Africa’s most trusted and culturally grounded tech brand helping both local and global businesses dominate their digital space with innovation and identity.",
+      // img: "/choose2.jpg", // 🔹 replace with your image
     },
-    excellence: {
-      title: "Commitment to Excellence",
-      desc: "We are ISO/IEC 27001:2022 certified, ensuring top-tier information security, quality assurance, and end-to-end service delivery.",
-      img: "/choose3.jpg", // 🔹 replace with your image
-    },
+    // excellence: {
+    //   title: "Commitment to Excellence",
+    //   desc: "To become Africa’s most trusted and culturally grounded tech brand helping both local and global businesses dominate their digital space with innovation and identity.",
+    //   img: "/choose3.jpg", // 🔹 replace with your image
+    // },
   };
 
   const active = tabs[activeTab];
@@ -34,7 +34,7 @@ export default function WhyChooseUs() {
               Company Benefits
             </h6>
             <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6 leading-snug capitalize text-start">
-              why you should choose Orimark?
+              why you should choose OrieMark?
             </h2>
           </div>
           {/* Tabs / Buttons */}
@@ -47,7 +47,7 @@ export default function WhyChooseUs() {
                   : "border-t-2 border-indigo-600"
               }`}
             >
-              Experience
+              Our Mission
             </button>
             <button
               onClick={() => setActiveTab("innovation")}
@@ -57,32 +57,33 @@ export default function WhyChooseUs() {
                   : "border-t-2 border-indigo-600"
               }`}
             >
-              Innovation
-            </button>
-            <button
-              onClick={() => setActiveTab("excellence")}
-              className={`px-5 py-2.5 font-semibold transition cursor-pointer ${
-                activeTab === "excellence"
-                  ? "bg-indigo-600 text-white shadow-md"
-                  : "border-t-2 border-indigo-600"
-              }`}
-            >
-              Excellence
+              Our Vision
             </button>
           </div>
           <p className="text-gray-600 mb-3">{active.desc}</p>
         </div>
         {/* RIGHT SIDE IMAGE */}
         <section className="text-start md:pt-7 flex flex-col gap-6">
-          <p>We are ISO/IEC 27001:2022 certified, ensuring top-tier information security, quality assurance, and end-to-end service delivery. We constantly adopt emerging technologies to keep you ahead of the curve — delivering scalable, secure, and future-ready systems. </p>
+          <p>
+            We believe that tech is the new currency, and every brand whether
+            small or large deserves to be seen, heard, and respected in the
+            digital world. That’s why we’re here: to empower our people, elevate
+            African excellence, and build solutions that speak louder than
+            words.{" "}
+          </p>
           <div className="md:flex gap-9 grid pl-3">
             <img src="/plant.jpg" alt="" className="w-40 h-30" />
             <ol className="text-xl font-light list-disc">
-              <li>Expertise Exprences& Proven TrackRecord</li>
-              <li>Customer-Centric Approach</li>
-              <li>Quality Asuurance</li>
-              <li>Timely Devlivery & Continuous Support</li>
-              <li>Cost-Effective Solutions</li>
+              <h3 className="px-5 py-2.5  font-semibold transition text-gray-700">
+                Our Core Values
+              </h3>
+              <li>Innovation – we don’t copy, we create!</li>
+              <li>Excellence – we deliver with quality and integrity!</li>
+              <li>
+                Culture – we stay true to our roots while thinking globally!
+              </li>
+              <li>Partnership – your goals become our mission!</li>
+              <li>Impact – every solution must solve, serve, and elevate!</li>
             </ol>
           </div>
         </section>

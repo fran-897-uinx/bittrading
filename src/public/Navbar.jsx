@@ -11,45 +11,56 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   const dropdowns = {
     industries: [
-      { title: "Finance & Banking", href: "#finance" },
-      { title: "Healthcare", href: "#health" },
-      { title: "Education", href: "#education" },
-      { title: "Manufacturing", href: "#manufacturing" },
+      { title: "Finance & Banking", path: "/finance" },
+      { title: "Healthcare", path: "/health" },
+      { title: "Education", path: "/education" },
+      { title: "Manufacturing", path: "/manufacturing" },
     ],
     products: [
-      { title: "Smart ERP", href: "#erp" },
-      { title: "CRM Solutions", href: "#crm" },
-      { title: "Analytics Dashboard", href: "#analytics" },
-      { title: "AI Chatbot", href: "#chatbot" },
+      { title: "Smart ERP", path: "/erp" },
+      { title: "CRM Solutions", path: "/crm" },
+      { title: "Analytics Dashboard", path: "/analytics" },
+      { title: "AI Chatbot", path: "/chatbot" },
     ],
     services: [
-      { title: "Software Development", href: "#software" },
-      { title: "Cloud Solutions", href: "#cloud" },
-      { title: "Cybersecurity", href: "#cyber" },
-      { title: "IT Consulting", href: "#consulting" },
+      { title: "Software Development", path: "/software" },
+      { title: "Cloud Solutions", path: "/cloud" },
+      { title: "Cybersecurity", path: "/cyber" },
+      { title: "IT Consulting", path: "/consulting" },
     ],
   };
 
   const menuItems = [
-    { name: "About", href: "#about" },
-    { name: "Case Studies", href: "#case-studies" },
-    { name: "Blog", href: "#blogs" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Careers", path: "/careers" },
+    { name: "Blog", path: "/blogs" },
+    { name: "Global Presence", path: "/faq" },
+    { name: "Contact", path: "/contact" },
   ];
 
   return (
     <>
-      <nav className="bg-white/80 backdrop-blur-3xl border-b border-gray-100 shadow-sm fixed top-0 w-full z-50">
+      <nav
+        className="fixed top-0 w-full z-50
+  bg-white/10 backdrop-blur-xl
+  transition-all duration-300 text-gray-300"
+      >
         {/* Top Bar */}
-        <div className="items-center gap-3 md:flex bg-black text-gray-200 justify-between md:px-7 px-4 md:py-2 w-full hidden ">
+        <div className="items-center gap-3 md:flex bg-black justify-between md:px-7 px-4 md:py-2 w-full hidden">
           <div className="md:flex md:gap-2">
             <span className="flex items-center gap-1">
               <Phone size={18} /> +234---------890
@@ -71,10 +82,17 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
           {/* Logo */}
           <a
-            href="/"
-            className="font-extrabold text-2xl text-indigo-600 tracking-tight"
+            to="/"
+            className="font-extrabold text-2xl text-indigo-900 tracking-tight flex gap-1"
           >
-            ORIMARK
+            <img
+              src="./logo.jpg"
+              alt=""
+              width={30}
+              height={30}
+              className="rounded-full"
+            />
+            ORIEMARK
           </a>
 
           {/* Desktop Menu */}
@@ -86,22 +104,25 @@ export default function Navbar() {
                 onMouseEnter={() => setOpenDropdown(title)}
                 onMouseLeave={() => setOpenDropdown(null)}
               >
-                <button className="flex items-center gap-1 font-medium text-gray-700 hover:text-indigo-600">
+                <button className="flex items-center gap-1 font-medium text-gray-400 hover:text-indigo-600 cursor-pointer">
                   {title.charAt(0).toUpperCase() + title.slice(1)}{" "}
-                  <ChevronDown size={16} />
+                  <ChevronDown
+                    size={16}
+                    className="group-open:rotate-180 transition-transform"
+                  />
                 </button>
 
                 {/* Dropdown */}
                 {openDropdown === title && (
-                  <div className="absolute left-0 mt-2 w-56 bg-white border border-gray-100 rounded-lg shadow-lg p-2 animate-fadeIn">
-                    {links.map((item, i) => (
-                      <a
+                  <div className="absolute left-0 mt-2 w-56 bg-white border border-gray-100 rounded-lg shadow-lg p-2 animate-fadeIn cursor-pointer">
+                    {links.map((ite, i) => (
+                      <Link
                         key={i}
-                        href={item.href}
-                        className="block px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-indigo-50 hover:text-indigo-600"
+                        to={ite.path}
+                        className="block px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 cursor-pointer"
                       >
-                        {item.title}
-                      </a>
+                        {ite.title}
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -109,20 +130,20 @@ export default function Navbar() {
             ))}
 
             {menuItems.map((item, i) => (
-              <a
+              <Link
                 key={i}
-                href={item.href}
-                className="text-gray-700 hover:text-indigo-600 font-medium transition-colors"
+                to={item.path}
+                className="text-gray-400 hover:text-indigo-600 font-medium transition-colors"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-gray-700"
+            className="md:hidden text-gray-100 "
           >
             {mobileOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
@@ -136,7 +157,7 @@ export default function Navbar() {
         }`}
       >
         <div className="flex justify-between items-start text-start px-5 py-4 border-b">
-          <span className="font-bold text-indigo-600 text-xl">ORIMARK</span>
+          <span className="font-bold text-indigo-600 text-xl">ORIEMARK</span>
           <button onClick={() => setMobileOpen(false)}>
             <X size={24} />
           </button>
@@ -155,13 +176,13 @@ export default function Navbar() {
               <ul className="pl-3 mt-2 space-y-1">
                 {items.map((sub, i) => (
                   <li key={i}>
-                    <a
-                      href={sub.href}
+                    <Link
+                      to={sub.path}
                       className="block text-gray-700 hover:text-indigo-600 text-sm py-1"
                       onClick={() => setMobileOpen(false)}
                     >
                       {sub.title}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -169,14 +190,14 @@ export default function Navbar() {
           ))}
 
           {menuItems.map((item, i) => (
-            <a
+            <Link
               key={i}
-              href={item.href}
+              to={item.path}
               className="block text-gray-700 hover:text-indigo-600 font-medium"
               onClick={() => setMobileOpen(false)}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
